@@ -8,11 +8,17 @@ class Snack:
 		self.form_snack()
 	def form_snack(self):
 		for segment in self.snack_position:
-				new_segment = Turtle(shape="square")
-				new_segment.penup()
-				new_segment.color("green")
-				new_segment.goto(segment)
-				self.snack_segments.append(new_segment)
+			self.add_segment(segment)
+
+	def add_segment(self,segment):
+		new_segment = Turtle(shape="square")
+		new_segment.penup()
+		new_segment.color("green")
+		new_segment.goto(segment)
+		self.snack_segments.append(new_segment)
+	
+	def extend_segment(self):
+		self.add_segment(self.snack_segments[-1].position())
 
 	def move_snack(self):
 		for seg_num in range(len(self.snack_segments) - 1, 0, -1):
